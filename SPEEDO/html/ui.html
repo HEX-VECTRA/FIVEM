@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="speedV" style="display:none;">
+    <!-- Grand V : fuel / rpm -->
+    <div class="v-container top">
+      <div class="bar bar-left">
+        <div class="fill fuel" id="bar-fuel"></div>
+      </div>
+
+      <div class="kmh-center">
+        <div class="kmh-value" id="kmh">0</div>
+        <div class="kmh-label">KMH</div>
+        <div class="odo" id="odo">0.0 km</div>
+      </div>
+
+      <div class="bar bar-right">
+        <div class="fill rpm" id="bar-rpm"></div>
+      </div>
+    </div>
+
+    <!-- Petit V dessous : vitesse / santé -->
+    <div class="v-container bottom">
+      <div class="bar bar-left sub">
+        <div class="fill speed" id="bar-speed"></div>
+      </div>
+      <div class="bar bar-right sub">
+        <div class="fill health" id="bar-health"></div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

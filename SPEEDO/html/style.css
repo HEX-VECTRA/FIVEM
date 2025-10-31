@@ -1,0 +1,87 @@
+:root {
+  --bar-w: 10px;
+  --bar-h: 85px;
+  --gap: 12px;
+  --angle: 25deg;
+
+  --c-fuel: 0,200,70;
+  --c-rpm: 255,100,0;
+  --c-speed: 80,160,255;
+  --c-health: 255,0,0;
+}
+
+* { box-sizing: border-box; user-select: none; }
+html,body { margin:0; padding:0; overflow:hidden; background:transparent; }
+
+#speedV {
+  position:absolute;
+  bottom:35px;
+  right:35px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  pointer-events:none;
+}
+
+/* Groupe V */
+.v-container {
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  gap:var(--gap);
+  position:relative;
+}
+.v-container.bottom {
+  margin-top:0px;   /* plus de superposition */
+  transform:scale(0.85); /* plus petit */
+  margin-top:6px;   /* descend légèrement */
+}
+
+/* Barres */
+.bar {
+  position:relative;
+  width:var(--bar-w);
+  height:var(--bar-h);
+  background:rgba(0,0,0,.45);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:6px;
+  overflow:hidden;
+  box-shadow:0 2px 6px rgba(0,0,0,.3);
+}
+.bar-left  { transform:rotate(calc(-1 * var(--angle))); transform-origin:bottom center; }
+.bar-right { transform:rotate(var(--angle)); transform-origin:bottom center; }
+.bar.sub   { height:65px; }
+
+/* Remplissage */
+.fill {
+  position:absolute; bottom:0; left:0; right:0; height:0%;
+  transition:height .15s linear;
+}
+.fuel   { background:linear-gradient(to top, rgba(var(--c-fuel),.9), rgba(var(--c-fuel),.6)); }
+.rpm    { background:linear-gradient(to top, rgba(var(--c-rpm),.9), rgba(var(--c-rpm),.6)); }
+.speed  { background:linear-gradient(to top, rgba(var(--c-speed),.9), rgba(var(--c-speed),.6)); }
+.health { background:linear-gradient(to top, rgba(var(--c-health),.9), rgba(var(--c-health),.6)); }
+
+/* Bloc central (KMH + odomètre) */
+.kmh-center {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  margin-bottom:10px;
+}
+.kmh-value {
+  font:800 24px/1 "Segoe UI", system-ui;
+  color:#fff;
+  text-shadow:0 2px 6px rgba(0,0,0,.6);
+}
+.kmh-label {
+  font:700 10px/1 "Segoe UI", system-ui;
+  letter-spacing:1px;
+  color:rgba(255,255,255,.8);
+}
+.odo {
+  font:700 10px/1 "Segoe UI", system-ui;
+  color:rgba(255,255,255,.8);
+  margin-top:2px;
+}
