@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="vhud">
+    <svg id="vectraHud" viewBox="0 0 200 200" aria-hidden="true">
+      <!-- V du haut (faim/soif) -->
+      <path d="M10 10 L100 100 L190 10" class="outline"/>
+      <!-- remplissage partant du creux (100,100) vers les branches -->
+      <path id="food"  d="M100 100 L10 10"  class="fill hunger"/>
+      <path id="water" d="M100 100 L190 10" class="fill thirst"/>
+
+      <!-- V du bas (vie) -->
+      <path d="M10 110 L100 200 L190 110" class="outline"/>
+      <path id="health-left"  d="M100 200 L10 110"  class="fill health"/>
+      <path id="health-right" d="M100 200 L190 110" class="fill health"/>
+    </svg>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

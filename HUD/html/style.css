@@ -1,0 +1,53 @@
+:root{
+  --size: 0.52;
+  --c-hunger:  60,220, 80;
+  --c-thirst:  40,140,255;
+  --c-health: 255, 60, 60;
+}
+
+html,body{
+  margin:0;
+  overflow:hidden;
+  background:transparent;
+}
+
+/* --- Position du HUD --- */
+#vhud{
+  position:absolute;
+  bottom:0px;   /* collé au bord bas */
+  left:0px;     /* collé au bord gauche */
+  transform:scale(var(--size));
+  pointer-events:none;
+  margin:0;
+  padding:0;
+}
+
+#vectraHud{
+  width:180px;
+  height:200px;
+}
+
+/* --- Style du HUD --- */
+.outline{
+  fill:none;
+  stroke:rgba(255,255,255,.08);
+  stroke-width:8;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,.35));
+}
+
+.fill{
+  fill:none;
+  stroke-width:8;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  stroke-dasharray:128;
+  stroke-dashoffset:128;
+  transition:stroke-dashoffset .15s linear;
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,.5));
+}
+
+.hunger{ stroke:rgba(var(--c-hunger),.98) }
+.thirst{ stroke:rgba(var(--c-thirst),.98) }
+.health{ stroke:rgba(var(--c-health),.98) }
